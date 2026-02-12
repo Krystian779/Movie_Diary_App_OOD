@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TEST\\source\\repos\\Movie_Diary_App_OOD\\MovieDiaryApp\\MovieDiaryApp\\MovieDiaryApp.csproj": {}
+    "E:\\code\\Movie App Project\\App\\MovieDiaryApp\\MovieDiaryApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TEST\\source\\repos\\Movie_Diary_App_OOD\\MovieDiaryApp\\MovieDiaryApp\\MovieDiaryApp.csproj": {
+    "E:\\code\\Movie App Project\\App\\MovieDiaryApp\\MovieDiaryApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TEST\\source\\repos\\Movie_Diary_App_OOD\\MovieDiaryApp\\MovieDiaryApp\\MovieDiaryApp.csproj",
+        "projectUniqueName": "E:\\code\\Movie App Project\\App\\MovieDiaryApp\\MovieDiaryApp.csproj",
         "projectName": "MovieDiaryApp",
-        "projectPath": "C:\\Users\\TEST\\source\\repos\\Movie_Diary_App_OOD\\MovieDiaryApp\\MovieDiaryApp\\MovieDiaryApp.csproj",
+        "projectPath": "E:\\code\\Movie App Project\\App\\MovieDiaryApp\\MovieDiaryApp.csproj",
         "packagesPath": "C:\\Users\\TEST\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TEST\\source\\repos\\Movie_Diary_App_OOD\\MovieDiaryApp\\MovieDiaryApp\\obj\\",
+        "outputPath": "E:\\code\\Movie App Project\\App\\MovieDiaryApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
