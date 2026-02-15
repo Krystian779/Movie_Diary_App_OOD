@@ -25,6 +25,7 @@ namespace MovieDiaryApp
 
         public async Task<List<Movie>> SearchMoviesAsync(string query)
         {
+            // Uri.EscapeDataString is used to ensure that the query string is properly encoded for use in a URL, preventing issues with special characters.
             var safe = Uri.EscapeDataString(query ?? "");
             var url = $"https://api.themoviedb.org/3/search/movie?api_key={ApiKey}&query={safe}";
             var response = await Http.GetFromJsonAsync<TmdbMovieResponse>(url);

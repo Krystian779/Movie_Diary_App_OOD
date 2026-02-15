@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 
 namespace MovieDiaryApp
 {
+
+    // JSON Response class from TMDB API
+    // Used my TmdbService class to deserialize API Data and extract list of movies from the results field
+
     public class TmdbMovieResponse
     {
         [JsonPropertyName("results")]
