@@ -50,5 +50,19 @@ namespace MovieDiaryApp
             try { await _vm.LoadTrendingAsync(); }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Error"); }
         }
+
+        private void ListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (((ListView)sender).SelectedItem is Movie selectedMovie)
+            {
+                var detailsWindow = new MovieDetailsWindow(selectedMovie);
+
+                // This makes sure the windows are linked (centers with window and if main closed this one closes too)
+                detailsWindow.Owner = this;
+
+                // Interaction with main window is blocked until details window is closed
+                detailsWindow.ShowDialog();
+            }
+        }
     }
 }

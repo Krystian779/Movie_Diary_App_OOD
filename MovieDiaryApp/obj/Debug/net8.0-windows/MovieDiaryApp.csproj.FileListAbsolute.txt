@@ -19,3 +19,5 @@ E:\code\Movie App Project\App\MovieDiaryApp\obj\Debug\net8.0-windows\refint\Movi
 E:\code\Movie App Project\App\MovieDiaryApp\obj\Debug\net8.0-windows\MovieDiaryApp.pdb
 E:\code\Movie App Project\App\MovieDiaryApp\obj\Debug\net8.0-windows\MovieDiaryApp.genruntimeconfig.cache
 E:\code\Movie App Project\App\MovieDiaryApp\obj\Debug\net8.0-windows\ref\MovieDiaryApp.dll
+E:\code\Movie App Project\App\MovieDiaryApp\obj\Debug\net8.0-windows\MovieDetailsWindow.g.cs
+E:\code\Movie App Project\App\MovieDiaryApp\obj\Debug\net8.0-windows\MovieDetailsWindow.baml

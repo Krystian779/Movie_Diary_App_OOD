@@ -24,6 +24,9 @@ namespace MovieDiaryApp
         [JsonPropertyName("release_date")]
         public string ReleaseDate { get; set; }
 
+        [JsonPropertyName("overview")]
+        public string Overview { get; set; }
+
         [JsonIgnore]
         public string PosterUrl
         {

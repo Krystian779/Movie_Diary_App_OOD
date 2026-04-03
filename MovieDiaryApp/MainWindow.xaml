@@ -32,7 +32,7 @@
                                 Click="TrendingButton_Click"/>
                     </StackPanel>
 
-                    <ListView Grid.Row="1" ItemsSource="{Binding Movies}" Grid.ColumnSpan="2">
+                    <ListView Grid.Row="1" ItemsSource="{Binding Movies}" Grid.ColumnSpan="2" MouseDoubleClick="ListView_MouseDoubleClick">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Border BorderThickness="1" BorderBrush="Gray" Padding="6" Margin="4">
