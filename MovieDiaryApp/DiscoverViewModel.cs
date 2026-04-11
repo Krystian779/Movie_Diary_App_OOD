@@ -14,6 +14,7 @@ namespace MovieDiaryApp
         private readonly TmdbService _tmdb = new TmdbService();
 
         public ObservableCollection<Movie> Movies { get; } = new ObservableCollection<Movie>();
+        public ObservableCollection<Movie> Watchlist { get; } = new ObservableCollection<Movie>();
 
         public string SearchText { get; set; } = "";
 
@@ -34,6 +35,17 @@ namespace MovieDiaryApp
             var movies = await _tmdb.SearchMoviesAsync(SearchText);
             foreach (var m in movies)
                 Movies.Add(m);
+        }
+
+        public void AddToWatchlist(Movie movie)
+        {
+            if (movie == null)
+                return;
+
+            if (!Watchlist.Contains(movie))
+            {
+                Watchlist.Add(movie);
+            }
         }
     }
 }

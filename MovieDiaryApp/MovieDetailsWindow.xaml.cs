@@ -19,10 +19,22 @@ namespace MovieDiaryApp
     /// </summary>
     public partial class MovieDetailsWindow : Window
     {
-        public MovieDetailsWindow(Movie movie)
+        private readonly DiscoverViewModel _vm;
+        public MovieDetailsWindow(Movie movie, DiscoverViewModel vm)
         {
             InitializeComponent();
             DataContext = movie;
+            _vm = vm;
+        }
+
+        private void AddToWatchlist_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Movie movie)
+            {
+                _vm.AddToWatchlist(movie);
+
+                MessageBox.Show($"Added '{movie.Title}' to watchlist.");
+            }
         }
     }
 }

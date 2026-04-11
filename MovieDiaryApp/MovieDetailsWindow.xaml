@@ -42,6 +42,11 @@
                 <TextBlock Text="{Binding Overview}"
                            TextWrapping="Wrap"
                            FontSize="14"/>
+                <Button Content="Add to Watchlist"
+        Width="150"
+        Height="35"
+        Margin="0,15,0,0"
+        Click="AddToWatchlist_Click"/>
             </StackPanel>
         </Grid>
     </ScrollViewer>

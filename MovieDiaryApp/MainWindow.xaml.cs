@@ -55,7 +55,7 @@ namespace MovieDiaryApp
         {
             if (((ListView)sender).SelectedItem is Movie selectedMovie)
             {
-                var detailsWindow = new MovieDetailsWindow(selectedMovie);
+                var detailsWindow = new MovieDetailsWindow(selectedMovie, _vm);
 
                 // This makes sure the windows are linked (centers with window and if main closed this one closes too)
                 detailsWindow.Owner = this;
