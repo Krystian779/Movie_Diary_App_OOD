@@ -6,7 +6,6 @@ E:\code\Movie App Project\App\MovieDiaryApp\bin\Debug\net8.0-windows\MovieDiaryA
 E:\code\Movie App Project\App\MovieDiaryApp\obj\Debug\net8.0-windows\MainWindow.g.cs
 E:\code\Movie App Project\App\MovieDiaryApp\obj\Debug\net8.0-windows\App.g.cs
 E:\code\Movie App Project\App\MovieDiaryApp\obj\Debug\net8.0-windows\MovieDiaryApp_MarkupCompile.cache
-E:\code\Movie App Project\App\MovieDiaryApp\obj\Debug\net8.0-windows\MovieDiaryApp_MarkupCompile.lref
 E:\code\Movie App Project\App\MovieDiaryApp\obj\Debug\net8.0-windows\MainWindow.baml
 E:\code\Movie App Project\App\MovieDiaryApp\obj\Debug\net8.0-windows\MovieDiaryApp.g.resources
 E:\code\Movie App Project\App\MovieDiaryApp\obj\Debug\net8.0-windows\MovieDiaryApp.GeneratedMSBuildEditorConfig.editorconfig

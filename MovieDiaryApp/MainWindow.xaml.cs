@@ -51,7 +51,8 @@ namespace MovieDiaryApp
             catch (Exception ex) { MessageBox.Show(ex.Message, "Error"); }
         }
 
-        private void ListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        
+        private void MoviesListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (((ListView)sender).SelectedItem is Movie selectedMovie)
             {
@@ -64,5 +65,7 @@ namespace MovieDiaryApp
                 detailsWindow.ShowDialog();
             }
         }
+        
+        
     }
 }

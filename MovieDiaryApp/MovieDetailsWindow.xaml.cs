@@ -36,5 +36,9 @@ namespace MovieDiaryApp
                 MessageBox.Show($"Added '{movie.Title}' to watchlist.");
             }
         }
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
