@@ -17,6 +17,7 @@ namespace MovieDiaryApp
     public partial class MainWindow : Window
     {
         private readonly DiscoverViewModel _vm = new DiscoverViewModel();
+        private bool _isShowingWatchlist = false;
 
         public MainWindow()
         {
@@ -31,6 +32,7 @@ namespace MovieDiaryApp
             try
             {
                 await _vm.LoadTrendingAsync();
+                _isShowingWatchlist = false;
             }
             catch (Exception ex)
             {
@@ -56,7 +58,7 @@ namespace MovieDiaryApp
         {
             if (((ListView)sender).SelectedItem is Movie selectedMovie)
             {
-                var detailsWindow = new MovieDetailsWindow(selectedMovie, _vm);
+                var detailsWindow = new MovieDetailsWindow(selectedMovie, _vm, _isShowingWatchlist);
 
                 // This makes sure the windows are linked (centers with window and if main closed this one closes too)
                 detailsWindow.Owner = this;
@@ -65,7 +67,17 @@ namespace MovieDiaryApp
                 detailsWindow.ShowDialog();
             }
         }
-        
-        
+
+        private void WatchlistButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(_vm.Watchlist.Count == 0)
+            {
+                MessageBox.Show("Watchlist is Empty");
+                return;
+            }
+            _vm.LoadWatchlist();
+        }
+
+
     }
 }

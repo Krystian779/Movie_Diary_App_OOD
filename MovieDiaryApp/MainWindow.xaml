@@ -12,7 +12,7 @@
 
     <Window.Resources>
 
-        <!-- Main accent brush -->
+        <!-- Main app colors -->
         <SolidColorBrush x:Key="AccentBrush" Color="#2EC4C7"/>
         <SolidColorBrush x:Key="AccentHoverBrush" Color="#49D6D9"/>
         <SolidColorBrush x:Key="MainBackgroundBrush" Color="#101820"/>
@@ -21,7 +21,7 @@
         <SolidColorBrush x:Key="PrimaryTextBrush" Color="#F5F7FA"/>
         <SolidColorBrush x:Key="SecondaryTextBrush" Color="#B8C4CE"/>
 
-        <!-- Button style -->
+        <!-- Button styling -->
         <Style TargetType="Button">
             <Setter Property="Background" Value="{StaticResource AccentBrush}"/>
             <Setter Property="Foreground" Value="White"/>
@@ -49,7 +49,7 @@
             </Style.Triggers>
         </Style>
 
-        <!-- TextBox style -->
+        <!-- TextBox styling -->
         <Style TargetType="TextBox">
             <Setter Property="Background" Value="#223140"/>
             <Setter Property="Foreground" Value="White"/>
@@ -60,7 +60,7 @@
             <Setter Property="CaretBrush" Value="White"/>
         </Style>
 
-        <!-- Remove harsh ListView styling -->
+        <!-- Remove default harsh ListView look -->
         <Style TargetType="ListView">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
@@ -91,7 +91,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Top title section -->
+        <!-- Header -->
         <Border Grid.Row="0"
                 Background="{StaticResource PanelBackgroundBrush}"
                 CornerRadius="14"
@@ -110,7 +110,7 @@
             </StackPanel>
         </Border>
 
-        <!-- Search / action bar -->
+        <!-- Search / buttons area -->
         <Border Grid.Row="1"
                 Background="{StaticResource PanelBackgroundBrush}"
                 CornerRadius="14"
@@ -119,6 +119,7 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
@@ -136,12 +137,17 @@
                 <Button Grid.Column="2"
                         Content="Trending"
                         Height="40"
-                        Click="TrendingButton_Click"
-                        Margin="0"/>
+                        Click="TrendingButton_Click"/>
+
+                <Button Grid.Column="3"
+                        Content="Watchlist"
+                        Height="40"
+                        Margin="0"
+                        Click="WatchlistButton_Click"/>
             </Grid>
         </Border>
 
-        <!-- Movies section -->
+        <!-- Movie cards -->
         <ScrollViewer Grid.Row="2"
                       VerticalScrollBarVisibility="Auto"
                       Background="Transparent">

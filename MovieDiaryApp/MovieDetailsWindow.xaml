@@ -121,9 +121,11 @@
                         </Border>
 
                         <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
-                            <Button Content="Add to Watchlist"
-                                    Width="160"
+                            <Button x:Name="WatchlistButton" 
+                                    Content="Add to Watchlist"
+                                    
                                     Height="40"
+                                    Padding="14,8"
                                     Click="AddToWatchlist_Click"/>
 
                             <Button Content="Close"

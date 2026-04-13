@@ -19,26 +19,59 @@ namespace MovieDiaryApp
     /// </summary>
     public partial class MovieDetailsWindow : Window
     {
+        private readonly Movie _movie;
         private readonly DiscoverViewModel _vm;
-        public MovieDetailsWindow(Movie movie, DiscoverViewModel vm)
+
+        public MovieDetailsWindow(Movie movie, DiscoverViewModel vm, bool isFromWatchlist)
         {
             InitializeComponent();
             DataContext = movie;
+            _movie = movie;
             _vm = vm;
+
+            UpdateButtonText();
         }
 
         private void AddToWatchlist_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Movie movie)
-            {
-                _vm.AddToWatchlist(movie);
+            bool isInWatchlist = _vm.Watchlist.Any(m => m.Id == _movie.Id);
 
-                MessageBox.Show($"Added '{movie.Title}' to watchlist.");
+            if (isInWatchlist)
+            {
+                var existingMovie = _vm.Watchlist.FirstOrDefault(m => m.Id == _movie.Id);
+
+                if (existingMovie != null)
+                {
+                    _vm.Watchlist.Remove(existingMovie);
+                    MessageBox.Show("Removed from Watchlist");
+                }
             }
+            else
+            {
+                _vm.AddToWatchlist(_movie);
+                MessageBox.Show("Added to Watchlist");
+            }
+
+            UpdateButtonText();
         }
+
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void UpdateButtonText()
+        {
+            bool isInWatchlist = _vm.Watchlist.Any(m => m.Id == _movie.Id);
+
+            if (isInWatchlist)
+            {
+                WatchlistButton.Content = "Remove from Watchlist";
+            }
+            else
+            {
+                WatchlistButton.Content = "Add to Watchlist";
+            }
         }
     }
 }

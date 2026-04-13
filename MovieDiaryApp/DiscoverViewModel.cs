@@ -47,5 +47,14 @@ namespace MovieDiaryApp
                 Watchlist.Add(movie);
             }
         }
+        public void LoadWatchlist()
+        {
+            Movies.Clear();
+
+            foreach (var movie in Watchlist)
+            {
+                Movies.Add(movie);
+            }
+        }
     }
 }
