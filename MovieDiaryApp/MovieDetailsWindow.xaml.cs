@@ -22,14 +22,16 @@ namespace MovieDiaryApp
         private readonly Movie _movie;
         private readonly DiscoverViewModel _vm;
 
-        public MovieDetailsWindow(Movie movie, DiscoverViewModel vm, bool isFromWatchlist)
+        public MovieDetailsWindow(Movie movie, DiscoverViewModel vm)
         {
             InitializeComponent();
             DataContext = movie;
             _movie = movie;
             _vm = vm;
 
-            UpdateButtonText();
+            UpdateButtonTextWatched();
+            UpdateButtonTextWatchlist();
+            
         }
 
         private void AddToWatchlist_Click(object sender, RoutedEventArgs e)
@@ -52,7 +54,7 @@ namespace MovieDiaryApp
                 MessageBox.Show("Added to Watchlist");
             }
 
-            UpdateButtonText();
+            UpdateButtonTextWatchlist();
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
@@ -60,7 +62,7 @@ namespace MovieDiaryApp
             Close();
         }
 
-        private void UpdateButtonText()
+        private void UpdateButtonTextWatchlist()
         {
             bool isInWatchlist = _vm.Watchlist.Any(m => m.Id == _movie.Id);
 
@@ -72,6 +74,51 @@ namespace MovieDiaryApp
             {
                 WatchlistButton.Content = "Add to Watchlist";
             }
+        }
+
+        private void UpdateButtonTextWatched()
+        {
+            bool isInWatched = _vm.Watched.Any(m => m.Id == _movie.Id);
+
+            if (isInWatched)
+            {
+                WatchedButton.Content = "Remove from Watched";
+            }
+            else
+            {
+                WatchedButton.Content = "Add to Watched";
+            }
+        }
+
+        private void AddToWatched_Click(object sender, RoutedEventArgs e)
+        {
+            bool isInWatched = _vm.Watched.Any(m => m.Id == _movie.Id);
+
+            if (isInWatched)
+            {
+                var existingMovie = _vm.Watched.FirstOrDefault(m => m.Id == _movie.Id);
+
+                if (existingMovie != null)
+                {
+                    _vm.Watched.Remove(existingMovie);
+                    MessageBox.Show("Removed from Watched");
+                }
+            }
+            else
+            {
+                _vm.AddToWatched(_movie);
+
+                var existingWatchlistMovie = _vm.Watchlist.FirstOrDefault(m => m.Id == _movie.Id);
+                if (existingWatchlistMovie != null)
+                {
+                    _vm.Watchlist.Remove(existingWatchlistMovie);
+                }
+
+                MessageBox.Show("Added to Watched");
+            }
+
+            UpdateButtonTextWatched();
+            UpdateButtonTextWatchlist();
         }
     }
 }

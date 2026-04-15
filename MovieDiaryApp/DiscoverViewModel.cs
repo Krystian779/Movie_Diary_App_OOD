@@ -15,6 +15,8 @@ namespace MovieDiaryApp
 
         public ObservableCollection<Movie> Movies { get; } = new ObservableCollection<Movie>();
         public ObservableCollection<Movie> Watchlist { get; } = new ObservableCollection<Movie>();
+        public ObservableCollection<Movie> Watched { get; } = new ObservableCollection<Movie>();
+        public string CurrentMode { get; set; } = "Trending";
 
         public string SearchText { get; set; } = "";
 
@@ -24,6 +26,7 @@ namespace MovieDiaryApp
             var movies = await _tmdb.GetTrendingMoviesAsync();
             foreach (var m in movies)
                 Movies.Add(m);
+            CurrentMode = "Trending";
         }
 
         public async Task SearchAsync()
@@ -35,6 +38,7 @@ namespace MovieDiaryApp
             var movies = await _tmdb.SearchMoviesAsync(SearchText);
             foreach (var m in movies)
                 Movies.Add(m);
+            CurrentMode = "Search Results";
         }
 
         public void AddToWatchlist(Movie movie)
@@ -47,6 +51,18 @@ namespace MovieDiaryApp
                 Watchlist.Add(movie);
             }
         }
+
+        public void AddToWatched(Movie movie)
+        {
+            if (movie == null)
+                return;
+
+            if (!Watched.Contains(movie))
+            {
+                Watched.Add(movie);
+            }
+
+        }
         public void LoadWatchlist()
         {
             Movies.Clear();
@@ -55,6 +71,18 @@ namespace MovieDiaryApp
             {
                 Movies.Add(movie);
             }
+            CurrentMode = "Watchlist";
+        }
+
+        public void LoadWatched()
+        {
+            Movies.Clear();
+            foreach (var movie in Watched)
+            {
+                Movies.Add(movie);
+            }
+            CurrentMode = "Watched";    
+
         }
     }
 }

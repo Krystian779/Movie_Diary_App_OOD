@@ -43,13 +43,19 @@ namespace MovieDiaryApp
 
         private async void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            try { await _vm.SearchAsync(); }
+            try { await _vm.SearchAsync();
+                DataContext = null;
+                DataContext = _vm;
+            }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Error"); }
         }
 
         private async void TrendingButton_Click(object sender, RoutedEventArgs e)
         {
-            try { await _vm.LoadTrendingAsync(); }
+            try { await _vm.LoadTrendingAsync();
+                DataContext = null;
+                DataContext = _vm;
+            }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Error"); }
         }
 
@@ -58,7 +64,7 @@ namespace MovieDiaryApp
         {
             if (((ListView)sender).SelectedItem is Movie selectedMovie)
             {
-                var detailsWindow = new MovieDetailsWindow(selectedMovie, _vm, _isShowingWatchlist);
+                var detailsWindow = new MovieDetailsWindow(selectedMovie, _vm);
 
                 // This makes sure the windows are linked (centers with window and if main closed this one closes too)
                 detailsWindow.Owner = this;
@@ -76,6 +82,20 @@ namespace MovieDiaryApp
                 return;
             }
             _vm.LoadWatchlist();
+            DataContext = null;
+            DataContext = _vm;
+        }
+
+        private void WatchedButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (_vm.Watched.Count == 0)
+            {
+                MessageBox.Show("No Movies watched!!!");
+                return;
+            }
+            _vm.LoadWatched();
+            DataContext = null;
+            DataContext = _vm;
         }
 
 
