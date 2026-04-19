@@ -81,7 +81,7 @@ namespace MovieDiaryApp
             {
                 Movies.Add(movie);
             }
-            CurrentMode = "Watched";    
+            CurrentMode = "Watched";
 
         }
     }

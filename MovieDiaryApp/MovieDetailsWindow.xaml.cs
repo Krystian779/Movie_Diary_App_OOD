@@ -31,7 +31,7 @@ namespace MovieDiaryApp
 
             UpdateButtonTextWatched();
             UpdateButtonTextWatchlist();
-            
+
         }
 
         private void AddToWatchlist_Click(object sender, RoutedEventArgs e)

@@ -43,7 +43,9 @@ namespace MovieDiaryApp
 
         private async void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            try { await _vm.SearchAsync();
+            try
+            {
+                await _vm.SearchAsync();
                 DataContext = null;
                 DataContext = _vm;
             }
@@ -52,14 +54,16 @@ namespace MovieDiaryApp
 
         private async void TrendingButton_Click(object sender, RoutedEventArgs e)
         {
-            try { await _vm.LoadTrendingAsync();
+            try
+            {
+                await _vm.LoadTrendingAsync();
                 DataContext = null;
                 DataContext = _vm;
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Error"); }
         }
 
-        
+
         private void MoviesListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (((ListView)sender).SelectedItem is Movie selectedMovie)
@@ -76,7 +80,7 @@ namespace MovieDiaryApp
 
         private void WatchlistButton_Click(object sender, RoutedEventArgs e)
         {
-            if(_vm.Watchlist.Count == 0)
+            if (_vm.Watchlist.Count == 0)
             {
                 MessageBox.Show("Watchlist is Empty");
                 return;
@@ -98,6 +102,23 @@ namespace MovieDiaryApp
             DataContext = _vm;
         }
 
+        private async void SeachTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                try
+                {
+                    await _vm.SearchAsync();
 
+                    DataContext = null;
+                    DataContext = _vm;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+        }
     }
 }
